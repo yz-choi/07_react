@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!--
+    jsx 를 이용해 엘리먼트를 정의할 시 attribute도 정의 가능
+    주의할 사항은 class 속성은 className이라는 속성 사용해야 함
+    또한 이벤트 관련 속성은 카멜 표기법 onclick => onClick() (이게 더 편해요^^)
+
+    jsx에서 속성값을 부여하는 방식은 두 가지
+    1. 문자열로 속성값 정의
+    2. javascript 표현식을 이용해 정의
+    -->
+    <div id = "root"></div>
+    <script type = "text/babel">
+        //1. 문자열로 속성값 정의
+        //const element = <h1 id= "title" className = "highlight" onClick ="test"> Hello world! </h1>;
+        
+        //2. javascript 표현식 이용 방법
+        const id = "title";
+        const className = "highlight";
+        const element = <h1 id = {id} className = {className} onClick = {test}> HELLO WORLD !!!! </h1>;
+        // onClick = {test()} 이런식으로 불러내면 렌더링 될 때 실행될 수 잇음 ... 곤란합니다 이름만 전달해서 실행될 수 있게 해야함
+        ReactDOM.createRoot(document.getElementById("root")).render(element);
+
+        function test()
+        {
+            console.log("클릭햇ㅅ긔");
+        }
+    </script>
+</body>
+</html>

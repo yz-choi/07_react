@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id = "root"></div>
+
+    <script>
+        /*
+        Element: 요소노드, 어트리뷰트, 텍스트 노드로 만들어지는 가상 DOM 개념
+        Component: Element를 반환하는 개념을 가진 화면의 구성 단위
+        */
+
+        // 클래스형 컴포넌트
+        // class Helloworld extends React.Component
+        // {
+        //     render()
+        //     {
+        //         return React.createElement
+        //         (
+        //             "h1",
+        //             {class: "greeting"},
+        //             "hell o world"
+        //         );
+        //     }
+        // }
+
+        //함수형 컴포넌트 (권장!!)
+        function HelloWorld()
+        {
+            return React.createElement("h1", {className:"greeting", id:"test1"}, "hell o world");
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(HelloWorld));
+
+        // 근디 가독서잉 떨어져효
+        
+    </script>
+</body>
+</html>
