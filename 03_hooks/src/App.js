@@ -56,10 +56,9 @@ function App() {
          <UseRefCounter/>
          <LoginComponent/>
          <PostComponent/>
-         <ContextContainer/>*/}
-
-
-        <CustomHooks/>
+         <ContextContainer/>
+         <CustomHooks/>*/}
+         <PostComponent/>
     </>
   );
 }

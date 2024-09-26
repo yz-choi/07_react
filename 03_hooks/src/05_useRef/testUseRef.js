@@ -5,44 +5,55 @@ const PostComponent = () =>
     const [posts, setPosts] = useState([]);
     const [post, setPost] = useState({
         title:"",
-        postcontent:""
+        content:""
     });
 
     const postRef = useRef();
 
-    const onClickPosting = () =>
-    {
-        console.log(post);
-    }
-
     const onChangeHandler = e =>
     {
         setPost({
-            ...post,
+           ...post,
             [e.target.name]: e.target.value
         });
     }
 
-    const postList = posts.map(post =>
+    const onClickPosting = () =>
     {
-        return(
-            <p key = {post.title}>
-                
-            </p>
-        )
+        setPosts([
+            ...posts,
+            post
+        ]);
+
+        setPost(
+            {
+                title:"",
+                content:""
+            }
+        );
     }
-    )
+
+
     return (
         <>
             <h1>게시판</h1>
-            <input type="text" name="title" placeholder="제목" onChange={onChangeHandler} ref={postRef}/>
+            <input type="text" name="title" placeholder="제목" onChange={onChangeHandler} value = {post.title} ref={postRef}/>
             <br/>
-            <textarea type="text" name="postcontent" placeholder="내용" onChange={onChangeHandler} ref={postRef}/>
+            <textarea type="text" name="content" placeholder="내용" onChange = {onChangeHandler} value ={post.content} ref={postRef}/>
             <br/>
             <button onClick={onClickPosting}>게시</button>
             <br/>
 
             <input type="text" name="searcher" placeholder="검색"/>
+
+            {posts.map(post => {return(
+                <div>
+                    <li>
+                        <h3>{post.title}</h3>
+                        <pre>{post.content}</pre>
+                    </li>
+                </div>
+            )})}
         </>
     )
 }
