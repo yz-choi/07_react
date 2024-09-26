@@ -15,6 +15,15 @@ import UseMemoComponent from "./03_useMemo/03_performance-useMemo";
 import LocationComponent from "./03_useMemo/04_object-type-problem";
 import SquareCalculator from "./03_useMemo/testUseMemo";
 import PrintProductsByCategory from "./03_useMemo/testCategory";
+import CallbackProblem from "./04_useCallback/01_problem";
+import FunctionMemoization from "./04_useCallback/02_function-memoization";
+import CallbackComponent from "./04_useCallback/03_components";
+import UseRefCounter from "./05_useRef/02_useRef";
+import LoginComponent from "./05_useRef/03_inputRef";
+import PostComponent from "./05_useRef/testUseRef";
+import Page from "./06_useContext/01_props-dribbling";
+import ContextContainer from "./06_useContext/02_useContext";
+import CustomHooks from "./07_custom-hooks/02_custom-hooks";
 
 
 
@@ -40,10 +49,17 @@ function App() {
         <UseMemoComponent/>
         <LocationComponent/>
       
-        <SquareCalculator/>*/}
-
-
+        <SquareCalculator/>
         <PrintProductsByCategory/>
+        <FunctionMemoization/>
+         <CallbackComponent/>
+         <UseRefCounter/>
+         <LoginComponent/>
+         <PostComponent/>
+         <ContextContainer/>*/}
+
+
+        <CustomHooks/>
     </>
   );
 }
