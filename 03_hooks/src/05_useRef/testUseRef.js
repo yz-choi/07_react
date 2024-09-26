@@ -4,6 +4,7 @@ const PostComponent = () =>
 {
     const [posts, setPosts] = useState([]);
     const [post, setPost] = useState({
+        id:0,
         title:"",
         content:""
     });
@@ -48,10 +49,8 @@ const PostComponent = () =>
 
             {posts.map(post => {return(
                 <div>
-                    <li>
-                        <h3>{post.title}</h3>
-                        <pre>{post.content}</pre>
-                    </li>
+                    <h3>{post.title}</h3>
+                    <pre>{post.content}</pre>
                 </div>
             )})}
         </>
