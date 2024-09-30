@@ -1,6 +1,6 @@
 import {useEffect, useState } from "react"
 
-const pokeDatas = {};
+const pokeDatas = ([]);
 
 async function getPokeDatas()
 {
