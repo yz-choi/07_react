@@ -1,15 +1,21 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import PostContainer from "./PostContainer";
 
-const PostComponent = () =>
+const Post = () =>
 {
-    const [posts, setPosts] = useState([]);
+    const [postList, setPostList] = useState([]);
     const [post, setPost] = useState({
         id:0,
         title:"",
         content:""
     });
 
-    const postRef = useRef();
+    const indexRef = useRef(0);
+
+    useEffect (()=>
+        {
+            console.log(indexRef.current);
+        }, []);
 
     const onChangeHandler = e =>
     {
@@ -19,42 +25,40 @@ const PostComponent = () =>
         });
     }
 
-    const onClickPosting = () =>
+    const addPost = () =>
     {
-        setPosts([
-            ...posts,
+        setPostList([
+            ...postList,
             post
         ]);
-
+        indexRef.current = indexRef.current+1;
         setPost(
             {
+                id: indexRef,
                 title:"",
                 content:""
             }
         );
-    }
 
+        console.log(postList);
+    }
 
     return (
         <>
             <h1>게시판</h1>
-            <input type="text" name="title" placeholder="제목" onChange={onChangeHandler} value = {post.title} ref={postRef}/>
+            <input type="text" name="title" placeholder="제목" onChange={onChangeHandler} value = {post.title}/>
             <br/>
-            <textarea type="text" name="content" placeholder="내용" onChange = {onChangeHandler} value ={post.content} ref={postRef}/>
+            <textarea type="text" name="content" placeholder="내용" onChange = {onChangeHandler} value ={post.content}/>
             <br/>
-            <button onClick={onClickPosting}>게시</button>
+            <button onClick={addPost}>게시</button>
             <br/>
 
             <input type="text" name="searcher" placeholder="검색"/>
 
-            {posts.map(post => {return(
-                <div>
-                    <h3>{post.title}</h3>
-                    <pre>{post.content}</pre>
-                </div>
-            )})}
+            <PostContainer postList={postList} setPostList={setPostList}/>
+    
         </>
     )
 }
 
-export default PostComponent;
+export default Post;

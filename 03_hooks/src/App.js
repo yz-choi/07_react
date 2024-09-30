@@ -24,11 +24,16 @@ import PostComponent from "./05_useRef/testUseRef";
 import Page from "./06_useContext/01_props-dribbling";
 import ContextContainer from "./06_useContext/02_useContext";
 import CustomHooks from "./07_custom-hooks/02_custom-hooks";
+import Post from "./05_useRef/testUseRef";
 
 
 
 function App() {
   const [message, setMessage] = useState("안냐새요");
+
+  const [postList, setPostList] = useState([]);
+  const [input, setInput] = useState([]);
+
   return (
     <>
         {/*<UseEffectBasic message = {message}/>*/}
@@ -58,7 +63,8 @@ function App() {
          <PostComponent/>
          <ContextContainer/>
          <CustomHooks/>*/}
-         <PostComponent/>
+         
+         <Post/>
     </>
   );
 }
