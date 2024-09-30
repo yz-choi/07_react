@@ -10,15 +10,21 @@ const searchBox = ({setImgUrl}) =>
 
 }
 
-const GameData = ({setPokeNum}) =>
+const GameData = ({setPokeNum, setPokeData}) =>
 {
     const [pokemon, setPokemon] = useState("");
     const onChangeHandler = e => setPokemon(e.target.value);
+
     const onClickHandler = () =>
     {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
-        .then(response => response.json());
-        setPokeNum(data);
+        setPokeNum(pokemon);
+    }
+
+    function getPokeData(pokemon)
+    {
+        const data = fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
+                    .then(response => response.json());
+        return data;
     }
 
     return(
@@ -32,10 +38,11 @@ const GameData = ({setPokeNum}) =>
 const PokeBox = () =>
 {
     const [pokeNum, setPokeNum] = useState("");
+    const [pokeData, setPokeData] = useState();
 
     return(
         <>
-            <GameData setPokeNum={setPokeNum}/>
+            <GameData setPokeNum={setPokeData}/>
             <br/>
             <ImageBox pokeNum = {pokeNum}/>
         </>
