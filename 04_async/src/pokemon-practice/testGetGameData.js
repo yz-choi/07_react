@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react"
 
-const ImageBox = ({pokeNum}) =>
-{
-    return !!pokeNum ? <img src = {`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeNum}.png`} alt = "pokemon"/>:<h1>x텅</h1>;
-}
+
 
 const searchBox = ({setImgUrl}) =>
 {
