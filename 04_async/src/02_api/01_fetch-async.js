@@ -15,11 +15,11 @@
 async function callApi(){
     const promise = fetch("https://jsonplaceholder.typicode.com/users");
 
-    const response = await promise;
+    const response = promise;
     console.log(response);
 
     console.log(`응답 상태: ${response.status}`);
-    consolle.log("응답 헤더");
+    console.log("응답 헤더");
     for(let [key, value] of response.headers)
     {
         console.log(`${key}: ${value}}`);
