@@ -2,24 +2,19 @@ import {useEffect, useState } from "react"
 
 const pokeDatas = ([]);
 
-async function getPokeDatas()
+export async function getPokeData(pokemon)
 {
-    const promise = fetch(`https://pokeapi.co/api/v2/pokemon/`)
-    .then(response => response.json());
+    
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}/`)
+    .then(response => response.json())
+    .then(data=>{return ()=>pokeDatas=data});
 
-    const datas = await promise;
-    pokeDatas = datas;
 }
 
 
 export function searchPokemon(pokeName)
 {
-    return pokeDatas.filter(data => data.name.match(pokeName));
-}
-
-export function getAllPokemon()
-{
-    return pokeDatas;
+    return pokeDatas.filter(data => data.id.match(pokeName))[0];
 }
 
 export function getImageBox(pokemon)

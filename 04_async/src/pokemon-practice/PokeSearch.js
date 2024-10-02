@@ -1,6 +1,6 @@
 import {useSearchParams} from "react-router-dom";
 import {useState, useEffect} from "react";
-import { searchPokemon } from "./PokeApi";
+import { getImageBox, searchPokemon } from "./PokeApi";
 
 const PokeSearch = () =>
 {
@@ -11,14 +11,15 @@ const PokeSearch = () =>
     useEffect(()=>
     {
         setPokeList(searchPokemon(searchPokeName));
-        console.log(searchPokeName);
+        
     }, [])
 
     return(
         <>
-            <h1> 포켓몬 검색 결과 </h1>
+            <h1> 네가 찾던 포켓몬이란다 </h1>
             <div>
-                {console.log(pokeList)}
+                {getImageBox(searchPokeName)}
+
             </div>
         </>
     )

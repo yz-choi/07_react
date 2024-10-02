@@ -12,6 +12,7 @@ const Navbar = () =>
         <div>
             <ul>
                 <li><NavLink to={"/pokelist"} style={({isActive})=>isActive?activeStyle:null}>포켓몬 리스트</NavLink></li>
+                <li><NavLink to={"/abilitylist"} style={({isActive})=>isActive?activeStyle:null}>능력 리스트</NavLink></li>
             </ul>
         </div>
     )

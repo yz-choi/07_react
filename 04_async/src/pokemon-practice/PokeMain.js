@@ -1,24 +1,33 @@
 import {useState, useEffect} from "react";
-import { getImageBox } from "./PokeApi";
+import { getImageBox, getPokeData } from "./PokeApi";
 import {useNavigate} from "react-router-dom";
 
 const PokeMain = () =>
 {
-    const [pokeNum, setPokeNum] = useState("");
-    const [pokemon, setPokemon] = useState("");
+    const [curPokemon, setCurPokeNum] = useState("");
+    const [pokemon, setPokemon] = useState();
     const navigate = useNavigate();
 
     const onClickHandler = () =>
     {
-        navigate(`/pokelist/search?name=${pokemon}`);
+        setPokemon(curPokemon);
+        navigate(`/pokelist/search?name=${curPokemon}`);
+        console.log(pokemon);
     }
+
+    useEffect(()=>
+    {
+        getPokeData(curPokemon);
+    }, [pokemon]);
 
     return(
         <>
-        <h1>연습 메인</h1>
-        <input type="text" onChange={e=>{setPokemon(e.target.value)}}/>
+        <h1>오늘의 포켓몬은 뭘까요~?</h1>
+        <img src = "./image/maxresdefault.jpg"/>
+        <input type="text" onChange={e=>{setCurPokeNum(e.target.value)}}/>
         <button onClick={onClickHandler}>찾기!</button>
-        {getImageBox(pokemon)}
+        <br/>
+
         </>
     )
 

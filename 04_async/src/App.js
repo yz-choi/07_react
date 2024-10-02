@@ -7,6 +7,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import PokeMain from "./pokemon-practice/PokeMain";
 import PokeSearch from "./pokemon-practice/PokeSearch";
 import Layout from "./layout/Layout";
+import Abilitylist from "./pokemon-practice/AbilityList";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route index element={<PokeMain/>}/>
             <Route path="search" element={<PokeSearch/>}/>
           </Route>
+          <Route path="abilitylist" element={<Abilitylist/>}/>
         </Routes>
       </BrowserRouter>
     </>
